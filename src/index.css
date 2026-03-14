@@ -11,6 +11,19 @@ body {
   color: #1a1a1a;
 }
 
+.venue-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .venue-detail-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .hero-bg {
   background: linear-gradient(135deg, #073d2e 0%, #0a5c44 50%, #0d7a5c 100%);
   position: relative;
