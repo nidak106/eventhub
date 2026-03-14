@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import C from '../constants/theme.js';
 import VENUES from '../data/venues.js';
 import StarRating from '../components/StarRating.jsx';
@@ -7,6 +7,14 @@ import GoldDivider from '../components/GoldDivider.jsx';
 
 const HomePage = ({ setPage, setSelectedVenue }) => {
   const [search, setSearch] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const categories = [
     { label: "Weddings", count: "180+ Venues", img: "/wedding-bg.jpg" },
@@ -54,6 +62,7 @@ const HomePage = ({ setPage, setSelectedVenue }) => {
 
           <div style={{
             display: "flex",
+            flexDirection: isMobile ? "column" : "row",
             background: "white",
             borderRadius: "50px",
             padding: "6px",
@@ -67,7 +76,7 @@ const HomePage = ({ setPage, setSelectedVenue }) => {
                 outline: "none",
                 padding: "0 25px",
                 fontSize: "16px",
-                borderRadius: "50px 0 0 50px",
+                borderRadius: isMobile ? "50px 50px 0 0" : "50px 0 0 50px",
                 color: "#333"
               }}
               placeholder="Search venues & event locations..."
@@ -75,15 +84,16 @@ const HomePage = ({ setPage, setSelectedVenue }) => {
               onChange={e => setSearch(e.target.value)}
             />
             <button style={{
-              padding: "12px 35px",
-              borderRadius: "50px",
+              padding: isMobile ? "15px 35px" : "12px 35px",
+              borderRadius: isMobile ? "0 0 50px 50px" : "50px",
               border: `2px solid ${C.emeraldDark}`,
               background: "transparent",
               color: C.emeraldDark,
               fontWeight: 700,
               cursor: "pointer",
               fontSize: "15px",
-              transition: "all 0.2s"
+              transition: "all 0.2s",
+              width: isMobile ? "100%" : "auto"
             }}>
               Search
             </button>
