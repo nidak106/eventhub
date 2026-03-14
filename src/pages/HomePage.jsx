@@ -26,7 +26,7 @@ const HomePage = ({ setPage, setSelectedVenue }) => {
         justifyContent: "center",
         padding: "80px 20px",
         // The linear-gradient creates that emerald green overlay from your reference image
-        backgroundImage: `linear-gradient(rgba(10, 92, 68, 0.75), rgba(10, 92, 68, 0.75)), url('/bg.jpg')`,
+        backgroundImage: `linear-gradient(rgba(10, 92, 68, 0.4), rgba(10, 92, 68, 0.5)), url('/bg.jpg')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         textAlign: "left"
