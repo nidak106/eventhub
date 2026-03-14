@@ -9,10 +9,10 @@ const HomePage = ({ setPage, setSelectedVenue }) => {
   const [search, setSearch] = useState("");
 
   const categories = [
-    { label: "Weddings", count: "180+ Venues", img: "/wedding-bg.jpg", icon: "💍" },
-    { label: "University Events", count: "40+ Events", img: "/uni-bg.jpg", icon: "🎓" },
-    { label: "Workshops", count: "60+ Events", img: "/workshop-bg.jpg", icon: "💡" },
-    { label: "Birthdays", count: "90+ Venues", img: "/birthday-bg.jpg", icon: "🎂" },
+    { label: "Weddings", count: "180+ Venues", img: "/wedding-bg.jpg" },
+    { label: "University Events", count: "40+ Events", img: "/uni-bg.jpg"},
+    { label: "Workshops", count: "60+ Events", img: "/workshop-bg.jpg"},
+    { label: "Birthdays", count: "90+ Venues", img: "/birthday-bg.jpg"},
   ];
 
   return (
